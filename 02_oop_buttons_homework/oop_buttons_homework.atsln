@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Atmel Studio Solution File, Format Version 11.00
+Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "oop_buttons_homework", "oop_buttons_homework\oop_buttons_homework.cppproj", "{E0419A3D-C1D6-4F4B-B875-29DE336B3BBA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|AVR = Debug|AVR
+		Release|AVR = Release|AVR
+		Release+Debug info|AVR = Release+Debug info|AVR
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E0419A3D-C1D6-4F4B-B875-29DE336B3BBA}.Debug|AVR.ActiveCfg = Debug|AVR
+		{E0419A3D-C1D6-4F4B-B875-29DE336B3BBA}.Debug|AVR.Build.0 = Debug|AVR
+		{E0419A3D-C1D6-4F4B-B875-29DE336B3BBA}.Release|AVR.ActiveCfg = Release|AVR
+		{E0419A3D-C1D6-4F4B-B875-29DE336B3BBA}.Release|AVR.Build.0 = Release|AVR
+		{E0419A3D-C1D6-4F4B-B875-29DE336B3BBA}.Release+Debug info|AVR.ActiveCfg = Release+Debug info|AVR
+		{E0419A3D-C1D6-4F4B-B875-29DE336B3BBA}.Release+Debug info|AVR.Build.0 = Release+Debug info|AVR
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
