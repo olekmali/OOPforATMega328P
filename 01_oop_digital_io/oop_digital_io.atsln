@@ -1,13 +1,11 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
+Microsoft Visual Studio Solution File, Format Version 12.00
 # Atmel Studio Solution File, Format Version 11.00
-Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "oop_digital_io", "oop_digital_io\oop_digital_io.cppproj", "{6E6CC34A-2DD7-4A54-A781-D530B72BF6A9}"
-EndProject
-Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "oop_digital_io_partial", "oop_digital_io_partial\oop_digital_io_partial.cppproj", "{2DF9D779-6EFA-4334-AF21-2F58039A9DA1}"
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "oop_digital_io", "oop_digital_io\oop_digital_io.cppproj", "{2DF9D779-6EFA-4334-AF21-2F58039A9DA1}"
 EndProject
 Project("{54F91283-7BC4-4236-8FF9-10F437C3AD48}") = "c_digital_io", "c_digital_io\c_digital_io.cproj", "{24611D75-25D7-47DF-8316-BBE2082CC055}"
-EndProject
-Project("{E66E83B9-2572-4076-B26E-6BE79FF3018A}") = "oop_digital_io_noloop", "oop_digital_io_noloop\oop_digital_io_noloop.cppproj", "{B7E80909-30C3-482A-B094-C0E2F21DF7C0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,10 +13,6 @@ Global
 		Release|AVR = Release|AVR
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{6E6CC34A-2DD7-4A54-A781-D530B72BF6A9}.Debug|AVR.ActiveCfg = Debug|AVR
-		{6E6CC34A-2DD7-4A54-A781-D530B72BF6A9}.Debug|AVR.Build.0 = Debug|AVR
-		{6E6CC34A-2DD7-4A54-A781-D530B72BF6A9}.Release|AVR.ActiveCfg = Release|AVR
-		{6E6CC34A-2DD7-4A54-A781-D530B72BF6A9}.Release|AVR.Build.0 = Release|AVR
 		{2DF9D779-6EFA-4334-AF21-2F58039A9DA1}.Debug|AVR.ActiveCfg = Debug|AVR
 		{2DF9D779-6EFA-4334-AF21-2F58039A9DA1}.Debug|AVR.Build.0 = Debug|AVR
 		{2DF9D779-6EFA-4334-AF21-2F58039A9DA1}.Release|AVR.ActiveCfg = Release|AVR
@@ -27,10 +21,6 @@ Global
 		{24611D75-25D7-47DF-8316-BBE2082CC055}.Debug|AVR.Build.0 = Debug|AVR
 		{24611D75-25D7-47DF-8316-BBE2082CC055}.Release|AVR.ActiveCfg = Release|AVR
 		{24611D75-25D7-47DF-8316-BBE2082CC055}.Release|AVR.Build.0 = Release|AVR
-		{B7E80909-30C3-482A-B094-C0E2F21DF7C0}.Debug|AVR.ActiveCfg = Debug|AVR
-		{B7E80909-30C3-482A-B094-C0E2F21DF7C0}.Debug|AVR.Build.0 = Debug|AVR
-		{B7E80909-30C3-482A-B094-C0E2F21DF7C0}.Release|AVR.ActiveCfg = Release|AVR
-		{B7E80909-30C3-482A-B094-C0E2F21DF7C0}.Release|AVR.Build.0 = Release|AVR
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
