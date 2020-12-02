@@ -3,7 +3,7 @@
  *
  * Created: 9/9/2020 1:27:00 AM
  *  Author: Aleksander Malinowski
- */ 
+ */
 
 #include "bios_keys.h"
 #include "bios_leds.h"
@@ -27,7 +27,7 @@ int main(void)
     DebouncedTogglePushButton B2;
     DebouncedTogglePushButton B3;
     PushButton * buttons[4] = { &B0, &B1, &B2, &B3};
-        
+
     uint16_t cnt = 0;
     // MAIN SUPERLOOP
     while(1)

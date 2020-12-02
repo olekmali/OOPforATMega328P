@@ -2,6 +2,7 @@
  * OOP Case study: all features test
  *
  * Created: 9/9/2020 1:27:00 AM
+ * Updated: 12/2/2020 1:12:00 AM
  *  Author: Aleksander Malinowski
  */
 
@@ -81,7 +82,7 @@ int main(void)
     Timer1::getInstance().initialize(10000, &myInt, Timer1::timer_prescale_1);
 
     ADConverter &V1 = ADConverter::getInstance();
-    V1.initialize();
+    V1.initialize(ADConverter::CH0, ADConverter::CHMAX);
 
     CircularBuffer<uint8_t, uint8_t, uint8_t, 1, 1> Channel0, Channel1;
     //             ^^ replace with the correct data type for data storage
@@ -130,8 +131,8 @@ int main(void)
         // convert the button below to autorepeat button
         B0.update( 0 != (KEY.get() & MenuKeys::Key5) );
         cli();
-        if ( B0.getState() )    LED.set( LED.get() |  0x10 );
-        else                    LED.set( LED.get() & ~0x10 );
+        if ( B0.getState() )    LED.set( LED.get() |  LEDs::LED4 );
+        else                    LED.set( LED.get() & ~LEDs::LED4 );
         sei();
 
         // do not change this feature - used for grading
@@ -140,7 +141,7 @@ int main(void)
         if (25<=alive)
         {
             alive=0;
-            LED.set( LED.get() ^ 0x20 );
+            LED.set( LED.get() ^ LEDs::LED5 );
         }
         sei();
 

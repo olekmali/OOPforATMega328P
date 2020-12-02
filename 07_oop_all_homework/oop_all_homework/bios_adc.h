@@ -8,7 +8,7 @@ class ADConverter {
 public:
     static ADConverter&  getInstance()                  { return(instance);        }
 
-                 void    initialize();
+                 void    initialize(uint8_t firstc = CH0, uint8_t endc = CHMAX);
                  void    shutdown();
                  void    startRound();
                  uint8_t isReady() const                { return(new_results);     }
@@ -17,9 +17,10 @@ public:
 
                  uint8_t getRecent(uint8_t channel) const;
 
-                 void    setRange(uint8_t channels);
-                 uint8_t getRange() const               { return(total_channels);  }
-                 uint8_t getMaxRange() const            { return(ADConverter::CHMAX);  }
+                 void    setRange(uint8_t firstc, uint8_t endc);
+                 uint8_t getBegin() const               { return(ch_begin); }
+                 uint8_t getEnd() const                 { return(ch_end); }
+                 uint8_t getCapacity() const            { return(ADConverter::CHMAX);  }
 
 
     static const uint8_t CH0 = 0;
@@ -33,13 +34,14 @@ public:
 private:
     static ADConverter instance;
 
-    volatile uint8_t new_results;    // Note: read/write uint8_t is an atomic transaction
-             uint8_t total_channels;
+    volatile uint8_t new_results;   // Note: read/write uint8_t is an atomic transaction
+             uint8_t ch_begin;      // The first channel number to scan
+             uint8_t ch_end;        // The last channel number to scan plus one ("end", not "last")
 
-    ADConverter() : new_results(0), total_channels(ADConverter::CHMAX) {}
+    ADConverter() : new_results(0), ch_begin(0), ch_end(ADConverter::CHMAX) {}
     ADConverter(const ADConverter&);
     void operator=(const ADConverter&);
-    
+
 };
 
 

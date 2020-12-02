@@ -2,6 +2,7 @@
  * OOP Case study: oop_adc_int_timer1_int_pwm
  *
  * Created: 9/9/2020 1:27:00 AM
+ * Updated: 12/2/2020 1:12:00 AM
  *  Author: Aleksander Malinowski
  */
 
@@ -74,7 +75,7 @@ int main(void)
     Timer1::getInstance().initialize(10000, &myInt, Timer1::timer_prescale_1);
 
     ADConverter &V1 = ADConverter::getInstance();
-    V1.initialize();
+    V1.initialize(ADConverter::CH4, ADConverter::CHMAX);
 
     sei();
     // MAIN SUPERLOOP
