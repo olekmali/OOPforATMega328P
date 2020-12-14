@@ -71,7 +71,7 @@ int main(void)
     LED.set(0);
 
     MenuKeys KEY;
-    ToggleButton B0;
+    TogglePushButton B0;
     // ^^^^^^^^^ Convert to autorepeat button per request in the code below
     uint8_t alive = 0;
 
@@ -128,7 +128,7 @@ int main(void)
             Channel1.clear();
         }
 
-        // convert the button below to autorepeat button
+        // convert the button below to auto-repeat button
         B0.update( 0 != (KEY.get() & MenuKeys::Key5) );
         cli();
         if ( B0.getState() )    LED.set( LED.get() |  LEDs::LED4 );
