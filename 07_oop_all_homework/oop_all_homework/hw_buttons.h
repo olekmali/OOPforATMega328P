@@ -1,6 +1,6 @@
-//* lib_buttons.h - sample state machine library *
-#ifndef LIB_BUTTONS_H_
-#define LIB_BUTTONS_H_
+//* This is a "stub" file that can be replaced by the header file for a fully functional library for push buttons *
+#ifndef HW_BUTTONS_H_
+#define HW_BUTTONS_H_
 #include <stdint.h>
 
 
@@ -54,5 +54,7 @@ protected:
     DebounceFilter debouncer;
 };
 
+// TODO
+// .. AutorepeatDebouncedTogglePushButton from the recent homework assignment - header file portion
 
 #endif /* LIB_BUTTONS_H_ */

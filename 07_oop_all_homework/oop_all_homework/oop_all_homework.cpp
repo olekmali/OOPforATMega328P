@@ -2,8 +2,9 @@
  * OOP Case study: all features test
  *
  * Created: 9/9/2020 1:27:00 AM
- * Updated: 12/2/2020 1:12:00 AM
- *  Author: Aleksander Malinowski
+ * Updated: 12/14/2020 4:50:00 PM
+ * Updated: 11/29/2021 11:21:00 PM
+ * Author: Aleksander Malinowski
  */
 
 #include "lib_atomic.h"
@@ -12,8 +13,8 @@
 #include "bios_timer1.h"
 #include "bios_adc.h"
 #include "lib_pwm.h"
-#include "lib_buttons.h"
 
+#include "hw_buttons.h"
 #include "hw_buffer.h"
 
 #include <stdlib.h>
@@ -71,8 +72,9 @@ int main(void)
     LED.set(0);
 
     MenuKeys KEY;
+    // TO DO
     TogglePushButton B0;
-    // ^^^^^^^^^ Convert to autorepeat button per request in the code below
+    // ^^^^^^^^^ Convert to autorepeat button
     uint8_t alive = 0;
 
     PWM_Generator<4, uint8_t> PWM(100, 100);
@@ -98,29 +100,44 @@ int main(void)
         while ( !V1.isReady() ) ;
         V1.resetReady();
 
-        Channel0.store( V1.getRecent(ADConverter::CH4) );
-        Channel1.store( V1.getRecent(ADConverter::CH5) );
+        uint8_t adc_ch0  = V1.getRecent(ADConverter::CH0);
+        uint8_t adc_ch1  = V1.getRecent(ADConverter::CH1);
+
+// TO DO
+// Uncomment #define below if your circular buffer works
+// #define _CIRCULAR_BUFFER_WORKS 1
+
+#ifndef _CIRCULAR_BUFFER_WORKS
+        PWM.setPWM(0, static_cast<uint16_t>(100U)*(adc_ch0)/255U);
+        PWM.setPWM(1, static_cast<uint16_t>(100U)*(256U-adc_ch0)/255U);
+        PWM.setPWM(2, static_cast<uint16_t>(100U)*(adc_ch1)/255U);
+        PWM.setPWM(3, static_cast<uint16_t>(100U)*(256U-adc_ch1)/255U);
+#else
+        Channel0.store( adc_ch0 );
+        Channel1.store( adc_ch1 );
 
         // if not buffer ready keep averages at 0
-        // otherwise compute the averages using two
+        // otherwise, compute the averages using two
         // custom circular buffer templates of <uint8_t>
 
         if ( Channel0.ready() )
         {
-            PWM.setPWM(0, static_cast<uint16_t>(100)*Channel0.ShortAverage()/255);
-            PWM.setPWM(1, static_cast<uint16_t>(100)*Channel0.LongAverage()/255);
+            PWM.setPWM(0, static_cast<uint16_t>(100U)*Channel0.ShortAverage()/255U);
+            PWM.setPWM(1, static_cast<uint16_t>(100U)*Channel0.LongAverage()/255U);
         } else {
             PWM.setPWM(0, 0);
             PWM.setPWM(1, 0);
         }
         if ( Channel1.ready() )
         {
-            PWM.setPWM(2, static_cast<uint16_t>(100)*Channel1.ShortAverage()/255);
-            PWM.setPWM(3, static_cast<uint16_t>(100)*Channel1.LongAverage()/255);
+            PWM.setPWM(2, static_cast<uint16_t>(100U)*Channel1.ShortAverage()/255U);
+            PWM.setPWM(3, static_cast<uint16_t>(100U)*Channel1.LongAverage()/255U);
         } else {
             PWM.setPWM(2, 0);
             PWM.setPWM(3, 0);
         }
+#endif
+
 
         if ( 0 != (KEY.get() & MenuKeys::Key4) )
         {
@@ -145,7 +162,7 @@ int main(void)
         }
         sei();
 
-        wdt_reset();                // <--- comment this line, observe and put it back
+        wdt_reset();
     }
 
     return(0);

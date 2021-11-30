@@ -2,6 +2,7 @@
  * OOP Case study: oop_adc_int_timer1_int
  *
  * Created: 9/9/2020 1:27:00 AM
+ * Updated: 11/29/2021 11:13:00 PM
  *  Author: Aleksander Malinowski
  */
 
@@ -64,13 +65,13 @@ int main(void)
         V1.resetReady();
 
         if (Keys.get() & MenuKeys::Key4)
-            LEDs.set(V1.getRecent(ADConverter::CH4)>>2);
+            LEDs.set(V1.getRecent(ADConverter::CH0)>>2);
         else if (Keys.get() & MenuKeys::Key5)
-            LEDs.set(V1.getRecent(ADConverter::CH4));
+            LEDs.set(V1.getRecent(ADConverter::CH0));
         else if (Keys.get() & MenuKeys::Key6)
-            LEDs.set(V1.getRecent(ADConverter::CH5)>>2);
+            LEDs.set(V1.getRecent(ADConverter::CH1)>>2);
         else if (Keys.get() & MenuKeys::Key7)
-            LEDs.set(V1.getRecent(ADConverter::CH5));
+            LEDs.set(V1.getRecent(ADConverter::CH1));
         else ; // otherwise keep the most recent value
 
     }

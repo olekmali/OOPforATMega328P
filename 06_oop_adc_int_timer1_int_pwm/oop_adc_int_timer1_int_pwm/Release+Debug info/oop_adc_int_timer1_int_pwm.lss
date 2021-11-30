@@ -1,0 +1,978 @@
+
+oop_adc_int_timer1_int_pwm.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .data         0000000c  00800100  000004d2  00000566  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  1 .text         000004d2  00000000  00000000  00000094  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .bss          0000000d  0080010c  0080010c  00000572  2**0
+                  ALLOC
+  3 .comment      00000030  00000000  00000000  00000572  2**0
+                  CONTENTS, READONLY
+  4 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  000005a4  2**2
+                  CONTENTS, READONLY
+  5 .debug_aranges 000000e8  00000000  00000000  000005e4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_info   0000209e  00000000  00000000  000006cc  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 00000fb9  00000000  00000000  0000276a  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_line   00000e95  00000000  00000000  00003723  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_frame  0000020c  00000000  00000000  000045b8  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_str    00006e35  00000000  00000000  000047c4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_loc    00000744  00000000  00000000  0000b5f9  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .debug_ranges 000000d8  00000000  00000000  0000bd3d  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 13 .debug_macro  00002760  00000000  00000000  0000be15  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	35 c0       	rjmp	.+106    	; 0x6c <__ctors_end>
+   2:	00 00       	nop
+   4:	58 c0       	rjmp	.+176    	; 0xb6 <__bad_interrupt>
+   6:	00 00       	nop
+   8:	56 c0       	rjmp	.+172    	; 0xb6 <__bad_interrupt>
+   a:	00 00       	nop
+   c:	54 c0       	rjmp	.+168    	; 0xb6 <__bad_interrupt>
+   e:	00 00       	nop
+  10:	52 c0       	rjmp	.+164    	; 0xb6 <__bad_interrupt>
+  12:	00 00       	nop
+  14:	50 c0       	rjmp	.+160    	; 0xb6 <__bad_interrupt>
+  16:	00 00       	nop
+  18:	4e c0       	rjmp	.+156    	; 0xb6 <__bad_interrupt>
+  1a:	00 00       	nop
+  1c:	4c c0       	rjmp	.+152    	; 0xb6 <__bad_interrupt>
+  1e:	00 00       	nop
+  20:	4a c0       	rjmp	.+148    	; 0xb6 <__bad_interrupt>
+  22:	00 00       	nop
+  24:	48 c0       	rjmp	.+144    	; 0xb6 <__bad_interrupt>
+  26:	00 00       	nop
+  28:	46 c0       	rjmp	.+140    	; 0xb6 <__bad_interrupt>
+  2a:	00 00       	nop
+  2c:	20 c1       	rjmp	.+576    	; 0x26e <__vector_11>
+  2e:	00 00       	nop
+  30:	42 c0       	rjmp	.+132    	; 0xb6 <__bad_interrupt>
+  32:	00 00       	nop
+  34:	40 c0       	rjmp	.+128    	; 0xb6 <__bad_interrupt>
+  36:	00 00       	nop
+  38:	3e c0       	rjmp	.+124    	; 0xb6 <__bad_interrupt>
+  3a:	00 00       	nop
+  3c:	3c c0       	rjmp	.+120    	; 0xb6 <__bad_interrupt>
+  3e:	00 00       	nop
+  40:	3a c0       	rjmp	.+116    	; 0xb6 <__bad_interrupt>
+  42:	00 00       	nop
+  44:	38 c0       	rjmp	.+112    	; 0xb6 <__bad_interrupt>
+  46:	00 00       	nop
+  48:	36 c0       	rjmp	.+108    	; 0xb6 <__bad_interrupt>
+  4a:	00 00       	nop
+  4c:	34 c0       	rjmp	.+104    	; 0xb6 <__bad_interrupt>
+  4e:	00 00       	nop
+  50:	32 c0       	rjmp	.+100    	; 0xb6 <__bad_interrupt>
+  52:	00 00       	nop
+  54:	48 c0       	rjmp	.+144    	; 0xe6 <__vector_21>
+  56:	00 00       	nop
+  58:	2e c0       	rjmp	.+92     	; 0xb6 <__bad_interrupt>
+  5a:	00 00       	nop
+  5c:	2c c0       	rjmp	.+88     	; 0xb6 <__bad_interrupt>
+  5e:	00 00       	nop
+  60:	2a c0       	rjmp	.+84     	; 0xb6 <__bad_interrupt>
+  62:	00 00       	nop
+  64:	28 c0       	rjmp	.+80     	; 0xb6 <__bad_interrupt>
+	...
+
+00000068 <__ctors_start>:
+  68:	da 00       	.word	0x00da	; ????
+  6a:	64 01       	movw	r12, r8
+
+0000006c <__ctors_end>:
+  6c:	11 24       	eor	r1, r1
+  6e:	1f be       	out	0x3f, r1	; 63
+  70:	cf ef       	ldi	r28, 0xFF	; 255
+  72:	d8 e0       	ldi	r29, 0x08	; 8
+  74:	de bf       	out	0x3e, r29	; 62
+  76:	cd bf       	out	0x3d, r28	; 61
+
+00000078 <__do_copy_data>:
+  78:	11 e0       	ldi	r17, 0x01	; 1
+  7a:	a0 e0       	ldi	r26, 0x00	; 0
+  7c:	b1 e0       	ldi	r27, 0x01	; 1
+  7e:	e2 ed       	ldi	r30, 0xD2	; 210
+  80:	f4 e0       	ldi	r31, 0x04	; 4
+  82:	02 c0       	rjmp	.+4      	; 0x88 <__do_copy_data+0x10>
+  84:	05 90       	lpm	r0, Z+
+  86:	0d 92       	st	X+, r0
+  88:	ac 30       	cpi	r26, 0x0C	; 12
+  8a:	b1 07       	cpc	r27, r17
+  8c:	d9 f7       	brne	.-10     	; 0x84 <__do_copy_data+0xc>
+
+0000008e <__do_clear_bss>:
+  8e:	21 e0       	ldi	r18, 0x01	; 1
+  90:	ac e0       	ldi	r26, 0x0C	; 12
+  92:	b1 e0       	ldi	r27, 0x01	; 1
+  94:	01 c0       	rjmp	.+2      	; 0x98 <.do_clear_bss_start>
+
+00000096 <.do_clear_bss_loop>:
+  96:	1d 92       	st	X+, r1
+
+00000098 <.do_clear_bss_start>:
+  98:	a9 31       	cpi	r26, 0x19	; 25
+  9a:	b2 07       	cpc	r27, r18
+  9c:	e1 f7       	brne	.-8      	; 0x96 <.do_clear_bss_loop>
+
+0000009e <__do_global_ctors>:
+  9e:	10 e0       	ldi	r17, 0x00	; 0
+  a0:	c6 e3       	ldi	r28, 0x36	; 54
+  a2:	d0 e0       	ldi	r29, 0x00	; 0
+  a4:	03 c0       	rjmp	.+6      	; 0xac <__do_global_ctors+0xe>
+  a6:	21 97       	sbiw	r28, 0x01	; 1
+  a8:	fe 01       	movw	r30, r28
+  aa:	0b d2       	rcall	.+1046   	; 0x4c2 <__tablejump2__>
+  ac:	c4 33       	cpi	r28, 0x34	; 52
+  ae:	d1 07       	cpc	r29, r17
+  b0:	d1 f7       	brne	.-12     	; 0xa6 <__do_global_ctors+0x8>
+  b2:	49 d1       	rcall	.+658    	; 0x346 <main>
+  b4:	0c c2       	rjmp	.+1048   	; 0x4ce <_exit>
+
+000000b6 <__bad_interrupt>:
+  b6:	a4 cf       	rjmp	.-184    	; 0x0 <__vectors>
+
+000000b8 <_ZN11ADConverter10startRoundEv>:
+    ADCSRA = 0;
+    ADMUX = 0;
+}
+
+void ADConverter::startRound  (void)
+{
+  b8:	fc 01       	movw	r30, r24
+    ADMUX = ( ADMUX & 0xE0 ) | ( 0x1F & ch_begin );
+  ba:	90 91 7c 00 	lds	r25, 0x007C	; 0x80007c <__TEXT_REGION_LENGTH__+0x7f807c>
+  be:	81 81       	ldd	r24, Z+1	; 0x01
+  c0:	8f 71       	andi	r24, 0x1F	; 31
+  c2:	90 7e       	andi	r25, 0xE0	; 224
+  c4:	98 2b       	or	r25, r24
+  c6:	90 93 7c 00 	sts	0x007C, r25	; 0x80007c <__TEXT_REGION_LENGTH__+0x7f807c>
+    channel = ch_begin;
+  ca:	81 81       	ldd	r24, Z+1	; 0x01
+  cc:	80 93 0c 01 	sts	0x010C, r24	; 0x80010c <__data_end>
+    if (channel<ch_end) ADCSRA |= (1 << ADSC);  // start the first conversion
+  d0:	80 91 0c 01 	lds	r24, 0x010C	; 0x80010c <__data_end>
+  d4:	92 81       	ldd	r25, Z+2	; 0x02
+  d6:	89 17       	cp	r24, r25
+  d8:	28 f4       	brcc	.+10     	; 0xe4 <_ZN11ADConverter10startRoundEv+0x2c>
+  da:	80 91 7a 00 	lds	r24, 0x007A	; 0x80007a <__TEXT_REGION_LENGTH__+0x7f807a>
+  de:	80 64       	ori	r24, 0x40	; 64
+  e0:	80 93 7a 00 	sts	0x007A, r24	; 0x80007a <__TEXT_REGION_LENGTH__+0x7f807a>
+  e4:	08 95       	ret
+
+000000e6 <__vector_21>:
+}
+
+ISR(ADC_vect)
+{
+  e6:	1f 92       	push	r1
+  e8:	0f 92       	push	r0
+  ea:	0f b6       	in	r0, 0x3f	; 63
+  ec:	0f 92       	push	r0
+  ee:	11 24       	eor	r1, r1
+  f0:	8f 93       	push	r24
+  f2:	9f 93       	push	r25
+  f4:	ef 93       	push	r30
+  f6:	ff 93       	push	r31
+    latest_results[channel] = ADCH;
+  f8:	e0 91 0c 01 	lds	r30, 0x010C	; 0x80010c <__data_end>
+  fc:	f0 e0       	ldi	r31, 0x00	; 0
+  fe:	80 91 79 00 	lds	r24, 0x0079	; 0x800079 <__TEXT_REGION_LENGTH__+0x7f8079>
+ 102:	e3 5f       	subi	r30, 0xF3	; 243
+ 104:	fe 4f       	sbci	r31, 0xFE	; 254
+ 106:	80 83       	st	Z, r24
+    channel++;
+ 108:	80 91 0c 01 	lds	r24, 0x010C	; 0x80010c <__data_end>
+ 10c:	8f 5f       	subi	r24, 0xFF	; 255
+ 10e:	80 93 0c 01 	sts	0x010C, r24	; 0x80010c <__data_end>
+    if( channel == ADConverter::getInstance().getEnd() )
+ 112:	90 91 0c 01 	lds	r25, 0x010C	; 0x80010c <__data_end>
+ 116:	80 91 15 01 	lds	r24, 0x0115	; 0x800115 <_ZN11ADConverter8instanceE+0x2>
+ 11a:	98 13       	cpse	r25, r24
+ 11c:	04 c0       	rjmp	.+8      	; 0x126 <__vector_21+0x40>
+                 void    initialize(uint8_t firstc = CH0, uint8_t endc = CHMAX);
+                 void    shutdown();
+                 void    startRound();
+                 uint8_t isReady() const                { return(new_results);     }
+                 void    resetReady()                   { new_results = 0; }
+                 void    setReady()                     { new_results = 1; }
+ 11e:	81 e0       	ldi	r24, 0x01	; 1
+ 120:	80 93 13 01 	sts	0x0113, r24	; 0x800113 <_ZN11ADConverter8instanceE>
+ 124:	0e c0       	rjmp	.+28     	; 0x142 <__vector_21+0x5c>
+    {
+        ADConverter::getInstance().setReady();
+    } else {
+        ADMUX = ( ADMUX & 0xE0 ) | ( 0x1F & channel );
+ 126:	90 91 7c 00 	lds	r25, 0x007C	; 0x80007c <__TEXT_REGION_LENGTH__+0x7f807c>
+ 12a:	80 91 0c 01 	lds	r24, 0x010C	; 0x80010c <__data_end>
+ 12e:	90 7e       	andi	r25, 0xE0	; 224
+ 130:	8f 71       	andi	r24, 0x1F	; 31
+ 132:	89 2b       	or	r24, r25
+ 134:	80 93 7c 00 	sts	0x007C, r24	; 0x80007c <__TEXT_REGION_LENGTH__+0x7f807c>
+        ADCSRA |= (1 << ADSC);  // start conversion
+ 138:	80 91 7a 00 	lds	r24, 0x007A	; 0x80007a <__TEXT_REGION_LENGTH__+0x7f807a>
+ 13c:	80 64       	ori	r24, 0x40	; 64
+ 13e:	80 93 7a 00 	sts	0x007A, r24	; 0x80007a <__TEXT_REGION_LENGTH__+0x7f807a>
+    }
+}
+ 142:	ff 91       	pop	r31
+ 144:	ef 91       	pop	r30
+ 146:	9f 91       	pop	r25
+ 148:	8f 91       	pop	r24
+ 14a:	0f 90       	pop	r0
+ 14c:	0f be       	out	0x3f, r0	; 63
+ 14e:	0f 90       	pop	r0
+ 150:	1f 90       	pop	r1
+ 152:	18 95       	reti
+
+00000154 <_ZNK11ADConverter9getRecentEh>:
+uint8_t ADConverter::getRecent(uint8_t channel) const
+{
+    uint8_t value;
+//  uint8_t sreg_save = SREG;           // Preserve Current Interrupt Status
+//  cli();                              // -- it's only 8-bits so it is atomic
+    value = latest_results[channel];
+ 154:	e6 2f       	mov	r30, r22
+ 156:	f0 e0       	ldi	r31, 0x00	; 0
+ 158:	e3 5f       	subi	r30, 0xF3	; 243
+ 15a:	fe 4f       	sbci	r31, 0xFE	; 254
+ 15c:	80 81       	ld	r24, Z
+//  SREG = sreg_save;                   // restore interrupts
+    return(value);
+}
+ 15e:	08 95       	ret
+
+00000160 <_ZN11ADConverter8setRangeEhh>:
+
+void ADConverter::setRange(uint8_t firstc, uint8_t endc) {
+ 160:	fc 01       	movw	r30, r24
+    if ( firstc<=CHMAX ) ch_begin = firstc;
+ 162:	67 30       	cpi	r22, 0x07	; 7
+ 164:	10 f4       	brcc	.+4      	; 0x16a <_ZN11ADConverter8setRangeEhh+0xa>
+ 166:	61 83       	std	Z+1, r22	; 0x01
+ 168:	02 c0       	rjmp	.+4      	; 0x16e <_ZN11ADConverter8setRangeEhh+0xe>
+    else ch_begin = CHMAX;
+ 16a:	86 e0       	ldi	r24, 0x06	; 6
+ 16c:	81 83       	std	Z+1, r24	; 0x01
+    if ( endc<=CHMAX ) ch_end = endc;
+ 16e:	47 30       	cpi	r20, 0x07	; 7
+ 170:	10 f4       	brcc	.+4      	; 0x176 <_ZN11ADConverter8setRangeEhh+0x16>
+ 172:	42 83       	std	Z+2, r20	; 0x02
+ 174:	08 95       	ret
+    else ch_end = CHMAX;
+ 176:	86 e0       	ldi	r24, 0x06	; 6
+ 178:	82 83       	std	Z+2, r24	; 0x02
+ 17a:	08 95       	ret
+
+0000017c <_ZN11ADConverter10initializeEhh>:
+
+// It would be too much effort and inefficiency to pack these two variables into the ADConverter class
+static volatile uint8_t latest_results[ADConverter::CHMAX];
+static volatile uint8_t channel;        //
+
+void ADConverter::initialize(uint8_t firstc, uint8_t endc) {
+ 17c:	cf 93       	push	r28
+ 17e:	df 93       	push	r29
+ 180:	ec 01       	movw	r28, r24
+    setRange(firstc, endc);
+ 182:	ee df       	rcall	.-36     	; 0x160 <_ZN11ADConverter8setRangeEhh>
+    channel = ch_begin;
+ 184:	89 81       	ldd	r24, Y+1	; 0x01
+ 186:	80 93 0c 01 	sts	0x010C, r24	; 0x80010c <__data_end>
+    new_results = 0;
+ 18a:	18 82       	st	Y, r1
+
+    ADCSRA  |= (1 << ADPS2) | (1 << ADPS1) | (1 << ADPS0) | (1<<ADIE);  // Set ADConverter clock to 125kHz (==16MHz/128), enable ADConverter complete interrupt
+ 18c:	aa e7       	ldi	r26, 0x7A	; 122
+ 18e:	b0 e0       	ldi	r27, 0x00	; 0
+ 190:	8c 91       	ld	r24, X
+ 192:	8f 60       	ori	r24, 0x0F	; 15
+ 194:	8c 93       	st	X, r24
+    ADMUX    = 0;                   // for now let us use the very 1st channel
+ 196:	ec e7       	ldi	r30, 0x7C	; 124
+ 198:	f0 e0       	ldi	r31, 0x00	; 0
+ 19a:	10 82       	st	Z, r1
+    ADMUX   |= (1 << REFS0);        // use VCC as Vref         (==AVCC==5V)
+ 19c:	80 81       	ld	r24, Z
+ 19e:	80 64       	ori	r24, 0x40	; 64
+ 1a0:	80 83       	st	Z, r24
+    ADMUX   |= (1 << ADLAR);        // left justify the result so that 8bits can be read from the high register
+ 1a2:	80 81       	ld	r24, Z
+ 1a4:	80 62       	ori	r24, 0x20	; 32
+ 1a6:	80 83       	st	Z, r24
+    // this works well if you do not need to have a 4bit cushion to prevent overflow on computations
+
+    ADCSRA  |= (1 << ADEN);         // start ADConverter
+ 1a8:	8c 91       	ld	r24, X
+ 1aa:	80 68       	ori	r24, 0x80	; 128
+ 1ac:	8c 93       	st	X, r24
+}
+ 1ae:	df 91       	pop	r29
+ 1b0:	cf 91       	pop	r28
+ 1b2:	08 95       	ret
+
+000001b4 <_GLOBAL__sub_I__ZN11ADConverter8instanceE>:
+
+    volatile uint8_t new_results;   // Note: read/write uint8_t is an atomic transaction
+             uint8_t ch_begin;      // The first channel number to scan
+             uint8_t ch_end;        // The last channel number to scan plus one ("end", not "last")
+
+    ADConverter() : new_results(0), ch_begin(0), ch_end(ADConverter::CHMAX) {}
+ 1b4:	e3 e1       	ldi	r30, 0x13	; 19
+ 1b6:	f1 e0       	ldi	r31, 0x01	; 1
+ 1b8:	10 82       	st	Z, r1
+ 1ba:	11 82       	std	Z+1, r1	; 0x01
+ 1bc:	86 e0       	ldi	r24, 0x06	; 6
+ 1be:	82 83       	std	Z+2, r24	; 0x02
+ 1c0:	08 95       	ret
+
+000001c2 <_ZN4LEDsC1Ev>:
+    --use_count;
+    if (use_count==0)
+    {
+        // to be safe and low power set the upper nibble back to input and shut off pull up resistors
+        DDRB  &= 0b11000000;
+        PORTB &= 0b11000000;
+ 1c2:	80 91 16 01 	lds	r24, 0x0116	; 0x800116 <_ZN4LEDs9use_countE>
+ 1c6:	81 11       	cpse	r24, r1
+ 1c8:	06 c0       	rjmp	.+12     	; 0x1d6 <_ZN4LEDsC1Ev+0x14>
+ 1ca:	84 b1       	in	r24, 0x04	; 4
+ 1cc:	8f 63       	ori	r24, 0x3F	; 63
+ 1ce:	84 b9       	out	0x04, r24	; 4
+ 1d0:	85 b1       	in	r24, 0x05	; 5
+ 1d2:	80 7c       	andi	r24, 0xC0	; 192
+ 1d4:	85 b9       	out	0x05, r24	; 5
+ 1d6:	80 91 16 01 	lds	r24, 0x0116	; 0x800116 <_ZN4LEDs9use_countE>
+ 1da:	8f 5f       	subi	r24, 0xFF	; 255
+ 1dc:	80 93 16 01 	sts	0x0116, r24	; 0x800116 <_ZN4LEDs9use_countE>
+ 1e0:	08 95       	ret
+
+000001e2 <_ZNK4LEDs3getEv>:
+
+uint8_t LEDs::get (void) const
+{
+    // no need for delay after writing to PORTB
+    // as it takes time to call the function
+    return( PINB & 0b00111111 );
+ 1e2:	83 b1       	in	r24, 0x03	; 3
+}
+ 1e4:	8f 73       	andi	r24, 0x3F	; 63
+ 1e6:	08 95       	ret
+
+000001e8 <_ZN4LEDs3setEh>:
+
+void LEDs::set ( uint8_t val )
+{
+    PORTB = (PORTB & 0b11000000) | (val & 0b00111111);
+ 1e8:	85 b1       	in	r24, 0x05	; 5
+ 1ea:	80 7c       	andi	r24, 0xC0	; 192
+ 1ec:	6f 73       	andi	r22, 0x3F	; 63
+ 1ee:	68 2b       	or	r22, r24
+ 1f0:	65 b9       	out	0x05, r22	; 5
+ 1f2:	08 95       	ret
+
+000001f4 <_ZN6Timer110initializeEmP9int_abaseh>:
+
+    TCCR1A = 0;
+    TCCR1B = 0;
+    TCCR1C = 0;
+    TIFR1  = 0;
+    TIMSK1 = 0;
+ 1f4:	cf 92       	push	r12
+ 1f6:	df 92       	push	r13
+ 1f8:	ef 92       	push	r14
+ 1fa:	ff 92       	push	r15
+ 1fc:	0f 93       	push	r16
+ 1fe:	6a 01       	movw	r12, r20
+ 200:	7b 01       	movw	r14, r22
+ 202:	fc 01       	movw	r30, r24
+ 204:	31 83       	std	Z+1, r19	; 0x01
+ 206:	20 83       	st	Z, r18
+ 208:	10 92 85 00 	sts	0x0085, r1	; 0x800085 <__TEXT_REGION_LENGTH__+0x7f8085>
+ 20c:	10 92 84 00 	sts	0x0084, r1	; 0x800084 <__TEXT_REGION_LENGTH__+0x7f8084>
+ 210:	e0 2f       	mov	r30, r16
+ 212:	f0 e0       	ldi	r31, 0x00	; 0
+ 214:	e0 50       	subi	r30, 0x00	; 0
+ 216:	ff 4f       	sbci	r31, 0xFF	; 255
+ 218:	80 e0       	ldi	r24, 0x00	; 0
+ 21a:	94 e2       	ldi	r25, 0x24	; 36
+ 21c:	a4 ef       	ldi	r26, 0xF4	; 244
+ 21e:	b0 e0       	ldi	r27, 0x00	; 0
+ 220:	bc 01       	movw	r22, r24
+ 222:	cd 01       	movw	r24, r26
+ 224:	00 80       	ld	r0, Z
+ 226:	04 c0       	rjmp	.+8      	; 0x230 <_ZN6Timer110initializeEmP9int_abaseh+0x3c>
+ 228:	95 95       	asr	r25
+ 22a:	87 95       	ror	r24
+ 22c:	77 95       	ror	r23
+ 22e:	67 95       	ror	r22
+ 230:	0a 94       	dec	r0
+ 232:	d2 f7       	brpl	.-12     	; 0x228 <_ZN6Timer110initializeEmP9int_abaseh+0x34>
+ 234:	a7 01       	movw	r20, r14
+ 236:	96 01       	movw	r18, r12
+ 238:	22 d1       	rcall	.+580    	; 0x47e <__udivmodsi4>
+ 23a:	21 50       	subi	r18, 0x01	; 1
+ 23c:	31 09       	sbc	r19, r1
+ 23e:	30 93 89 00 	sts	0x0089, r19	; 0x800089 <__TEXT_REGION_LENGTH__+0x7f8089>
+ 242:	20 93 88 00 	sts	0x0088, r18	; 0x800088 <__TEXT_REGION_LENGTH__+0x7f8088>
+ 246:	10 92 80 00 	sts	0x0080, r1	; 0x800080 <__TEXT_REGION_LENGTH__+0x7f8080>
+ 24a:	07 70       	andi	r16, 0x07	; 7
+ 24c:	08 60       	ori	r16, 0x08	; 8
+ 24e:	00 93 81 00 	sts	0x0081, r16	; 0x800081 <__TEXT_REGION_LENGTH__+0x7f8081>
+ 252:	86 b3       	in	r24, 0x16	; 22
+ 254:	16 ba       	out	0x16, r1	; 22
+ 256:	ef e6       	ldi	r30, 0x6F	; 111
+ 258:	f0 e0       	ldi	r31, 0x00	; 0
+ 25a:	80 81       	ld	r24, Z
+ 25c:	88 7d       	andi	r24, 0xD8	; 216
+ 25e:	82 60       	ori	r24, 0x02	; 2
+ 260:	80 83       	st	Z, r24
+ 262:	0f 91       	pop	r16
+ 264:	ff 90       	pop	r15
+ 266:	ef 90       	pop	r14
+ 268:	df 90       	pop	r13
+ 26a:	cf 90       	pop	r12
+ 26c:	08 95       	ret
+
+0000026e <__vector_11>:
+}
+
+
+ISR(TIMER1_COMPA_vect)
+{
+ 26e:	1f 92       	push	r1
+ 270:	0f 92       	push	r0
+ 272:	0f b6       	in	r0, 0x3f	; 63
+ 274:	0f 92       	push	r0
+ 276:	11 24       	eor	r1, r1
+ 278:	2f 93       	push	r18
+ 27a:	3f 93       	push	r19
+ 27c:	4f 93       	push	r20
+ 27e:	5f 93       	push	r21
+ 280:	6f 93       	push	r22
+ 282:	7f 93       	push	r23
+ 284:	8f 93       	push	r24
+ 286:	9f 93       	push	r25
+ 288:	af 93       	push	r26
+ 28a:	bf 93       	push	r27
+ 28c:	ef 93       	push	r30
+ 28e:	ff 93       	push	r31
+    static Timer1&  getInstance()   { return(instance);  }
+
+    void initialize( uint32_t frequency, int_abase* int_handler_class, uint8_t prescaler );
+    void shutdown();
+    
+    int_abase* getHandler() const { return(interrupt_handler_class); }
+ 290:	80 91 17 01 	lds	r24, 0x0117	; 0x800117 <_ZN6Timer18instanceE>
+ 294:	90 91 18 01 	lds	r25, 0x0118	; 0x800118 <_ZN6Timer18instanceE+0x1>
+    Timer1::getInstance().getHandler()->handle();
+ 298:	dc 01       	movw	r26, r24
+ 29a:	ed 91       	ld	r30, X+
+ 29c:	fc 91       	ld	r31, X
+ 29e:	01 90       	ld	r0, Z+
+ 2a0:	f0 81       	ld	r31, Z
+ 2a2:	e0 2d       	mov	r30, r0
+ 2a4:	09 95       	icall
+}
+ 2a6:	ff 91       	pop	r31
+ 2a8:	ef 91       	pop	r30
+ 2aa:	bf 91       	pop	r27
+ 2ac:	af 91       	pop	r26
+ 2ae:	9f 91       	pop	r25
+ 2b0:	8f 91       	pop	r24
+ 2b2:	7f 91       	pop	r23
+ 2b4:	6f 91       	pop	r22
+ 2b6:	5f 91       	pop	r21
+ 2b8:	4f 91       	pop	r20
+ 2ba:	3f 91       	pop	r19
+ 2bc:	2f 91       	pop	r18
+ 2be:	0f 90       	pop	r0
+ 2c0:	0f be       	out	0x3f, r0	; 63
+ 2c2:	0f 90       	pop	r0
+ 2c4:	1f 90       	pop	r1
+ 2c6:	18 95       	reti
+
+000002c8 <_GLOBAL__sub_I__ZN6Timer18instanceE>:
+    
+private:
+    static Timer1       instance;
+           int_abase*   interrupt_handler_class;
+    
+    Timer1() : interrupt_handler_class(0) {}
+ 2c8:	10 92 18 01 	sts	0x0118, r1	; 0x800118 <_ZN6Timer18instanceE+0x1>
+ 2cc:	10 92 17 01 	sts	0x0117, r1	; 0x800117 <_ZN6Timer18instanceE>
+ 2d0:	08 95       	ret
+
+000002d2 <_ZN11myInterrupt6handleEv>:
+    uint16_t                    interval;
+    PWM_Generator<2, uint8_t>*  PWM_GEN;
+    LEDs*                       PWM_PIN;
+};
+
+void myInterrupt::handle() {
+ 2d2:	cf 93       	push	r28
+ 2d4:	df 93       	push	r29
+ 2d6:	ec 01       	movw	r28, r24
+    //  or anything computationally intense
+    //      including use of integer * and /
+    //  not to mention anything floating point
+
+
+    PWM_PIN->set( PWM_GEN->NextStepUpdate( PWM_PIN->get() ) );
+ 2d8:	88 85       	ldd	r24, Y+8	; 0x08
+ 2da:	99 85       	ldd	r25, Y+9	; 0x09
+ 2dc:	82 df       	rcall	.-252    	; 0x1e2 <_ZNK4LEDs3getEv>
+ 2de:	ee 81       	ldd	r30, Y+6	; 0x06
+ 2e0:	ff 81       	ldd	r31, Y+7	; 0x07
+
+template<uint8_t PWM_NCHANNELS, typename pwmcnt_t>
+uint8_t PWM_Generator<PWM_NCHANNELS, pwmcnt_t>::NextStepUpdate(uint8_t pwmbyte)
+{
+    // PWM software counter update
+    if ( PWM_RESOLUTION <= counter )
+ 2e2:	90 85       	ldd	r25, Z+8	; 0x08
+ 2e4:	25 81       	ldd	r18, Z+5	; 0x05
+ 2e6:	92 17       	cp	r25, r18
+ 2e8:	50 f0       	brcs	.+20     	; 0x2fe <_ZN11myInterrupt6handleEv+0x2c>
+    {
+        counter = 0;
+ 2ea:	10 86       	std	Z+8, r1	; 0x08
+        if ( MyPWMCoef_change )
+ 2ec:	94 81       	ldd	r25, Z+4	; 0x04
+ 2ee:	99 23       	and	r25, r25
+ 2f0:	41 f0       	breq	.+16     	; 0x302 <_ZN11myInterrupt6handleEv+0x30>
+        {
+            for (uint8_t i=0; i<PWM_NCHANNELS; ++i)
+            MyPWMCoef_params[i] = MyPWMCoef_reload[i];
+ 2f2:	92 81       	ldd	r25, Z+2	; 0x02
+ 2f4:	90 83       	st	Z, r25
+ 2f6:	93 81       	ldd	r25, Z+3	; 0x03
+ 2f8:	91 83       	std	Z+1, r25	; 0x01
+            MyPWMCoef_change = 0;
+ 2fa:	14 82       	std	Z+4, r1	; 0x04
+ 2fc:	02 c0       	rjmp	.+4      	; 0x302 <_ZN11myInterrupt6handleEv+0x30>
+            // Note: Actual change in PWM will take effect when a new PWM cycle starts
+        }
+    }
+    else
+    {
+        counter++;
+ 2fe:	9f 5f       	subi	r25, 0xFF	; 255
+ 300:	90 87       	std	Z+8, r25	; 0x08
+    }
+
+    // PWM output computation based on software counter
+    pwmbyte = pwmbyte & ~PWM_CH_MASK;
+ 302:	67 81       	ldd	r22, Z+7	; 0x07
+ 304:	60 95       	com	r22
+ 306:	68 23       	and	r22, r24
+
+    uint8_t current = 0x01;
+    for (uint8_t i=0; i<PWM_NCHANNELS; ++i)
+    {
+        if ( counter < MyPWMCoef_params[i] ) pwmbyte |= current;
+ 308:	80 85       	ldd	r24, Z+8	; 0x08
+ 30a:	90 81       	ld	r25, Z
+ 30c:	89 17       	cp	r24, r25
+ 30e:	08 f4       	brcc	.+2      	; 0x312 <_ZN11myInterrupt6handleEv+0x40>
+ 310:	61 60       	ori	r22, 0x01	; 1
+ 312:	91 81       	ldd	r25, Z+1	; 0x01
+ 314:	89 17       	cp	r24, r25
+ 316:	08 f4       	brcc	.+2      	; 0x31a <_ZN11myInterrupt6handleEv+0x48>
+ 318:	62 60       	ori	r22, 0x02	; 2
+ 31a:	88 85       	ldd	r24, Y+8	; 0x08
+ 31c:	99 85       	ldd	r25, Y+9	; 0x09
+ 31e:	64 df       	rcall	.-312    	; 0x1e8 <_ZN4LEDs3setEh>
+
+    if (counter==0)
+ 320:	8a 81       	ldd	r24, Y+2	; 0x02
+ 322:	9b 81       	ldd	r25, Y+3	; 0x03
+ 324:	00 97       	sbiw	r24, 0x00	; 0
+ 326:	49 f4       	brne	.+18     	; 0x33a <_ZN11myInterrupt6handleEv+0x68>
+    {
+        counter = interval;
+ 328:	8c 81       	ldd	r24, Y+4	; 0x04
+ 32a:	9d 81       	ldd	r25, Y+5	; 0x05
+ 32c:	9b 83       	std	Y+3, r25	; 0x03
+ 32e:	8a 83       	std	Y+2, r24	; 0x02
+        // HERE do things every so many interrupts
+        ADConverter::getInstance().startRound();
+ 330:	83 e1       	ldi	r24, 0x13	; 19
+ 332:	91 e0       	ldi	r25, 0x01	; 1
+    } else {
+        counter--;
+    }
+}
+ 334:	df 91       	pop	r29
+
+    if (counter==0)
+    {
+        counter = interval;
+        // HERE do things every so many interrupts
+        ADConverter::getInstance().startRound();
+ 336:	cf 91       	pop	r28
+ 338:	bf ce       	rjmp	.-642    	; 0xb8 <_ZN11ADConverter10startRoundEv>
+    } else {
+        counter--;
+ 33a:	01 97       	sbiw	r24, 0x01	; 1
+ 33c:	9b 83       	std	Y+3, r25	; 0x03
+ 33e:	8a 83       	std	Y+2, r24	; 0x02
+    }
+}
+ 340:	df 91       	pop	r29
+ 342:	cf 91       	pop	r28
+ 344:	08 95       	ret
+
+00000346 <main>:
+
+int main(void)
+{
+ 346:	cf 93       	push	r28
+ 348:	df 93       	push	r29
+ 34a:	cd b7       	in	r28, 0x3d	; 61
+ 34c:	de b7       	in	r29, 0x3e	; 62
+ 34e:	64 97       	sbiw	r28, 0x14	; 20
+ 350:	0f b6       	in	r0, 0x3f	; 63
+ 352:	f8 94       	cli
+ 354:	de bf       	out	0x3e, r29	; 62
+ 356:	0f be       	out	0x3f, r0	; 63
+ 358:	cd bf       	out	0x3d, r28	; 61
+				: "n" (_SFR_MEM_ADDR(_WD_CONTROL_REG)),
+				"r" ((uint8_t)(_BV(_WD_CHANGE_BIT) | _BV(WDE))),
+				"r" ((uint8_t) ((value & 0x08 ? _WD_PS3_MASK : 0x00) |
+						_BV(WDE) | (value & 0x07)) )
+				: "r0"
+		);
+ 35a:	9b e0       	ldi	r25, 0x0B	; 11
+ 35c:	88 e1       	ldi	r24, 0x18	; 24
+ 35e:	0f b6       	in	r0, 0x3f	; 63
+ 360:	f8 94       	cli
+ 362:	a8 95       	wdr
+ 364:	80 93 60 00 	sts	0x0060, r24	; 0x800060 <__TEXT_REGION_LENGTH__+0x7f8060>
+ 368:	0f be       	out	0x3f, r0	; 63
+ 36a:	90 93 60 00 	sts	0x0060, r25	; 0x800060 <__TEXT_REGION_LENGTH__+0x7f8060>
+    // 4 - 0.22s
+    // 5 - 0.45s
+    // 6 - 0.9s
+    // 7 - 1.8s
+
+    LEDs LED;
+ 36e:	8e 01       	movw	r16, r28
+ 370:	0c 5e       	subi	r16, 0xEC	; 236
+ 372:	1f 4f       	sbci	r17, 0xFF	; 255
+ 374:	c8 01       	movw	r24, r16
+ 376:	25 df       	rcall	.-438    	; 0x1c2 <_ZN4LEDsC1Ev>
+    LED.set(0);
+ 378:	60 e0       	ldi	r22, 0x00	; 0
+ 37a:	c8 01       	movw	r24, r16
+ 37c:	35 df       	rcall	.-406    	; 0x1e8 <_ZN4LEDs3setEh>
+
+
+
+template<uint8_t PWM_NCHANNELS, typename pwmcnt_t>
+PWM_Generator<PWM_NCHANNELS, pwmcnt_t>::PWM_Generator(/* TBA: PortSelection, */ pwmcnt_t resolution, pwmcnt_t percent100value )
+:   MyPWMCoef_change(false), PWM_RESOLUTION(resolution), PWM_100_PERCENT(percent100value), PWM_CH_MASK(0), counter(0)
+ 37e:	1f 86       	std	Y+15, r1	; 0x0f
+ 380:	84 e6       	ldi	r24, 0x64	; 100
+ 382:	88 8b       	std	Y+16, r24	; 0x10
+ 384:	89 8b       	std	Y+17, r24	; 0x11
+ 386:	1b 8a       	std	Y+19, r1	; 0x13
+{
+    for(uint8_t i=0; i<PWM_NCHANNELS; ++i)
+    {
+        PWM_CH_MASK = (PWM_CH_MASK<<1) | 0x01;
+        MyPWMCoef_params[i] = 0;
+ 388:	1b 86       	std	Y+11, r1	; 0x0b
+        MyPWMCoef_reload[i] = 0;
+ 38a:	1d 86       	std	Y+13, r1	; 0x0d
+PWM_Generator<PWM_NCHANNELS, pwmcnt_t>::PWM_Generator(/* TBA: PortSelection, */ pwmcnt_t resolution, pwmcnt_t percent100value )
+:   MyPWMCoef_change(false), PWM_RESOLUTION(resolution), PWM_100_PERCENT(percent100value), PWM_CH_MASK(0), counter(0)
+{
+    for(uint8_t i=0; i<PWM_NCHANNELS; ++i)
+    {
+        PWM_CH_MASK = (PWM_CH_MASK<<1) | 0x01;
+ 38c:	83 e0       	ldi	r24, 0x03	; 3
+ 38e:	8a 8b       	std	Y+18, r24	; 0x12
+        MyPWMCoef_params[i] = 0;
+ 390:	1c 86       	std	Y+12, r1	; 0x0c
+        MyPWMCoef_reload[i] = 0;
+ 392:	1e 86       	std	Y+14, r1	; 0x0e
+
+class myInterrupt : public int_abase {
+public:
+    virtual void    handle();
+    myInterrupt(uint16_t ADC_interval, PWM_Generator<2, uint8_t>* GEN, LEDs* PWM_Pins)
+        : counter(0), interval(ADC_interval), PWM_GEN(GEN), PWM_PIN(PWM_Pins) {}
+ 394:	8a e0       	ldi	r24, 0x0A	; 10
+ 396:	91 e0       	ldi	r25, 0x01	; 1
+ 398:	9a 83       	std	Y+2, r25	; 0x02
+ 39a:	89 83       	std	Y+1, r24	; 0x01
+ 39c:	1c 82       	std	Y+4, r1	; 0x04
+ 39e:	1b 82       	std	Y+3, r1	; 0x03
+ 3a0:	88 ec       	ldi	r24, 0xC8	; 200
+ 3a2:	90 e0       	ldi	r25, 0x00	; 0
+ 3a4:	9e 83       	std	Y+6, r25	; 0x06
+ 3a6:	8d 83       	std	Y+5, r24	; 0x05
+ 3a8:	ce 01       	movw	r24, r28
+ 3aa:	0b 96       	adiw	r24, 0x0b	; 11
+ 3ac:	98 87       	std	Y+8, r25	; 0x08
+ 3ae:	8f 83       	std	Y+7, r24	; 0x07
+ 3b0:	1a 87       	std	Y+10, r17	; 0x0a
+ 3b2:	09 87       	std	Y+9, r16	; 0x09
+
+    PWM_Generator<2, uint8_t> PWM(100, 100);
+
+    myInterrupt myInt(10000/50, &PWM, &LED);
+
+    Timer1::getInstance().initialize(10000, &myInt, Timer1::timer_prescale_1);
+ 3b4:	01 e0       	ldi	r16, 0x01	; 1
+ 3b6:	9e 01       	movw	r18, r28
+ 3b8:	2f 5f       	subi	r18, 0xFF	; 255
+ 3ba:	3f 4f       	sbci	r19, 0xFF	; 255
+ 3bc:	40 e1       	ldi	r20, 0x10	; 16
+ 3be:	57 e2       	ldi	r21, 0x27	; 39
+ 3c0:	60 e0       	ldi	r22, 0x00	; 0
+ 3c2:	70 e0       	ldi	r23, 0x00	; 0
+ 3c4:	87 e1       	ldi	r24, 0x17	; 23
+ 3c6:	91 e0       	ldi	r25, 0x01	; 1
+ 3c8:	15 df       	rcall	.-470    	; 0x1f4 <_ZN6Timer110initializeEmP9int_abaseh>
+
+    ADConverter &V1 = ADConverter::getInstance();
+    V1.initialize(ADConverter::CH4, ADConverter::CHMAX);
+ 3ca:	46 e0       	ldi	r20, 0x06	; 6
+ 3cc:	64 e0       	ldi	r22, 0x04	; 4
+ 3ce:	83 e1       	ldi	r24, 0x13	; 19
+ 3d0:	91 e0       	ldi	r25, 0x01	; 1
+ 3d2:	d4 de       	rcall	.-600    	; 0x17c <_ZN11ADConverter10initializeEhh>
+
+    sei();
+ 3d4:	78 94       	sei
+    while(1)
+    {
+        while ( !V1.isReady() ) ;
+        V1.resetReady();
+
+        PWM.setPWM(0, static_cast<uint16_t>(100)*V1.getRecent(ADConverter::CH4)/255);
+ 3d6:	0f ef       	ldi	r16, 0xFF	; 255
+ 3d8:	10 e0       	ldi	r17, 0x00	; 0
+    percentage = PWM_100_PERCENT;
+
+    if ( PWM_NCHANNELS>channel )
+    {
+        MyPWMCoef_reload[channel] = ( static_cast<uint16_t>(percentage) * PWM_RESOLUTION ) / PWM_100_PERCENT;
+        MyPWMCoef_change = true;
+ 3da:	ff 24       	eor	r15, r15
+ 3dc:	f3 94       	inc	r15
+    static ADConverter&  getInstance()                  { return(instance);        }
+
+                 void    initialize(uint8_t firstc = CH0, uint8_t endc = CHMAX);
+                 void    shutdown();
+                 void    startRound();
+                 uint8_t isReady() const                { return(new_results);     }
+ 3de:	80 91 13 01 	lds	r24, 0x0113	; 0x800113 <_ZN11ADConverter8instanceE>
+
+    sei();
+    // MAIN SUPERLOOP
+    while(1)
+    {
+        while ( !V1.isReady() ) ;
+ 3e2:	88 23       	and	r24, r24
+ 3e4:	e1 f3       	breq	.-8      	; 0x3de <main+0x98>
+                 void    resetReady()                   { new_results = 0; }
+ 3e6:	10 92 13 01 	sts	0x0113, r1	; 0x800113 <_ZN11ADConverter8instanceE>
+        V1.resetReady();
+
+        PWM.setPWM(0, static_cast<uint16_t>(100)*V1.getRecent(ADConverter::CH4)/255);
+ 3ea:	64 e0       	ldi	r22, 0x04	; 4
+ 3ec:	83 e1       	ldi	r24, 0x13	; 19
+ 3ee:	91 e0       	ldi	r25, 0x01	; 1
+ 3f0:	b1 de       	rcall	.-670    	; 0x154 <_ZNK11ADConverter9getRecentEh>
+ 3f2:	24 e6       	ldi	r18, 0x64	; 100
+ 3f4:	82 9f       	mul	r24, r18
+ 3f6:	c0 01       	movw	r24, r0
+ 3f8:	11 24       	eor	r1, r1
+ 3fa:	b8 01       	movw	r22, r16
+ 3fc:	2c d0       	rcall	.+88     	; 0x456 <__udivmodhi4>
+}
+
+template<uint8_t PWM_NCHANNELS, typename pwmcnt_t>
+void PWM_Generator<PWM_NCHANNELS, pwmcnt_t>::setPWM(uint8_t channel, pwmcnt_t percentage)
+{
+    uint8_t sreg_save = SREG;           // Preserve Current Interrupt Status
+ 3fe:	3f b7       	in	r19, 0x3f	; 63
+    cli();
+ 400:	f8 94       	cli
+
+    if ( PWM_100_PERCENT < percentage)
+ 402:	29 89       	ldd	r18, Y+17	; 0x11
+ 404:	26 17       	cp	r18, r22
+ 406:	08 f4       	brcc	.+2      	; 0x40a <__EEPROM_REGION_LENGTH__+0xa>
+ 408:	62 2f       	mov	r22, r18
+    percentage = PWM_100_PERCENT;
+
+    if ( PWM_NCHANNELS>channel )
+    {
+        MyPWMCoef_reload[channel] = ( static_cast<uint16_t>(percentage) * PWM_RESOLUTION ) / PWM_100_PERCENT;
+ 40a:	88 89       	ldd	r24, Y+16	; 0x10
+ 40c:	68 9f       	mul	r22, r24
+ 40e:	c0 01       	movw	r24, r0
+ 410:	11 24       	eor	r1, r1
+ 412:	62 2f       	mov	r22, r18
+ 414:	70 e0       	ldi	r23, 0x00	; 0
+ 416:	1f d0       	rcall	.+62     	; 0x456 <__udivmodhi4>
+        MyPWMCoef_change = true;
+ 418:	6d 87       	std	Y+13, r22	; 0x0d
+        // Note: Actual change in PWM will take effect when a new PWM cycle starts to prevent glitches
+    }
+
+    SREG = sreg_save;                   // restore interrupts
+ 41a:	ff 86       	std	Y+15, r15	; 0x0f
+        PWM.setPWM(1, static_cast<uint16_t>(100)*V1.getRecent(ADConverter::CH5)/255);
+ 41c:	3f bf       	out	0x3f, r19	; 63
+ 41e:	65 e0       	ldi	r22, 0x05	; 5
+ 420:	83 e1       	ldi	r24, 0x13	; 19
+ 422:	91 e0       	ldi	r25, 0x01	; 1
+ 424:	97 de       	rcall	.-722    	; 0x154 <_ZNK11ADConverter9getRecentEh>
+ 426:	24 e6       	ldi	r18, 0x64	; 100
+ 428:	82 9f       	mul	r24, r18
+ 42a:	c0 01       	movw	r24, r0
+ 42c:	11 24       	eor	r1, r1
+ 42e:	b8 01       	movw	r22, r16
+ 430:	12 d0       	rcall	.+36     	; 0x456 <__udivmodhi4>
+}
+
+template<uint8_t PWM_NCHANNELS, typename pwmcnt_t>
+void PWM_Generator<PWM_NCHANNELS, pwmcnt_t>::setPWM(uint8_t channel, pwmcnt_t percentage)
+{
+    uint8_t sreg_save = SREG;           // Preserve Current Interrupt Status
+ 432:	3f b7       	in	r19, 0x3f	; 63
+    cli();
+ 434:	f8 94       	cli
+
+    if ( PWM_100_PERCENT < percentage)
+ 436:	29 89       	ldd	r18, Y+17	; 0x11
+ 438:	26 17       	cp	r18, r22
+ 43a:	08 f4       	brcc	.+2      	; 0x43e <__EEPROM_REGION_LENGTH__+0x3e>
+    percentage = PWM_100_PERCENT;
+
+    if ( PWM_NCHANNELS>channel )
+    {
+        MyPWMCoef_reload[channel] = ( static_cast<uint16_t>(percentage) * PWM_RESOLUTION ) / PWM_100_PERCENT;
+ 43c:	62 2f       	mov	r22, r18
+ 43e:	88 89       	ldd	r24, Y+16	; 0x10
+ 440:	68 9f       	mul	r22, r24
+ 442:	c0 01       	movw	r24, r0
+ 444:	11 24       	eor	r1, r1
+ 446:	62 2f       	mov	r22, r18
+ 448:	70 e0       	ldi	r23, 0x00	; 0
+ 44a:	05 d0       	rcall	.+10     	; 0x456 <__udivmodhi4>
+ 44c:	6e 87       	std	Y+14, r22	; 0x0e
+        MyPWMCoef_change = true;
+ 44e:	ff 86       	std	Y+15, r15	; 0x0f
+        // Note: Actual change in PWM will take effect when a new PWM cycle starts to prevent glitches
+    }
+
+    SREG = sreg_save;                   // restore interrupts
+ 450:	3f bf       	out	0x3f, r19	; 63
+
+        wdt_reset();                // comment this line, observe and put it back
+ 452:	a8 95       	wdr
+    ADConverter &V1 = ADConverter::getInstance();
+    V1.initialize(ADConverter::CH4, ADConverter::CHMAX);
+
+    sei();
+    // MAIN SUPERLOOP
+    while(1)
+ 454:	c4 cf       	rjmp	.-120    	; 0x3de <main+0x98>
+
+00000456 <__udivmodhi4>:
+ 456:	aa 1b       	sub	r26, r26
+ 458:	bb 1b       	sub	r27, r27
+ 45a:	51 e1       	ldi	r21, 0x11	; 17
+ 45c:	07 c0       	rjmp	.+14     	; 0x46c <__udivmodhi4_ep>
+
+0000045e <__udivmodhi4_loop>:
+ 45e:	aa 1f       	adc	r26, r26
+ 460:	bb 1f       	adc	r27, r27
+ 462:	a6 17       	cp	r26, r22
+ 464:	b7 07       	cpc	r27, r23
+ 466:	10 f0       	brcs	.+4      	; 0x46c <__udivmodhi4_ep>
+ 468:	a6 1b       	sub	r26, r22
+ 46a:	b7 0b       	sbc	r27, r23
+
+0000046c <__udivmodhi4_ep>:
+ 46c:	88 1f       	adc	r24, r24
+ 46e:	99 1f       	adc	r25, r25
+ 470:	5a 95       	dec	r21
+ 472:	a9 f7       	brne	.-22     	; 0x45e <__udivmodhi4_loop>
+ 474:	80 95       	com	r24
+ 476:	90 95       	com	r25
+ 478:	bc 01       	movw	r22, r24
+ 47a:	cd 01       	movw	r24, r26
+ 47c:	08 95       	ret
+
+0000047e <__udivmodsi4>:
+ 47e:	a1 e2       	ldi	r26, 0x21	; 33
+ 480:	1a 2e       	mov	r1, r26
+ 482:	aa 1b       	sub	r26, r26
+ 484:	bb 1b       	sub	r27, r27
+ 486:	fd 01       	movw	r30, r26
+ 488:	0d c0       	rjmp	.+26     	; 0x4a4 <__udivmodsi4_ep>
+
+0000048a <__udivmodsi4_loop>:
+ 48a:	aa 1f       	adc	r26, r26
+ 48c:	bb 1f       	adc	r27, r27
+ 48e:	ee 1f       	adc	r30, r30
+ 490:	ff 1f       	adc	r31, r31
+ 492:	a2 17       	cp	r26, r18
+ 494:	b3 07       	cpc	r27, r19
+ 496:	e4 07       	cpc	r30, r20
+ 498:	f5 07       	cpc	r31, r21
+ 49a:	20 f0       	brcs	.+8      	; 0x4a4 <__udivmodsi4_ep>
+ 49c:	a2 1b       	sub	r26, r18
+ 49e:	b3 0b       	sbc	r27, r19
+ 4a0:	e4 0b       	sbc	r30, r20
+ 4a2:	f5 0b       	sbc	r31, r21
+
+000004a4 <__udivmodsi4_ep>:
+ 4a4:	66 1f       	adc	r22, r22
+ 4a6:	77 1f       	adc	r23, r23
+ 4a8:	88 1f       	adc	r24, r24
+ 4aa:	99 1f       	adc	r25, r25
+ 4ac:	1a 94       	dec	r1
+ 4ae:	69 f7       	brne	.-38     	; 0x48a <__udivmodsi4_loop>
+ 4b0:	60 95       	com	r22
+ 4b2:	70 95       	com	r23
+ 4b4:	80 95       	com	r24
+ 4b6:	90 95       	com	r25
+ 4b8:	9b 01       	movw	r18, r22
+ 4ba:	ac 01       	movw	r20, r24
+ 4bc:	bd 01       	movw	r22, r26
+ 4be:	cf 01       	movw	r24, r30
+ 4c0:	08 95       	ret
+
+000004c2 <__tablejump2__>:
+ 4c2:	ee 0f       	add	r30, r30
+ 4c4:	ff 1f       	adc	r31, r31
+ 4c6:	05 90       	lpm	r0, Z+
+ 4c8:	f4 91       	lpm	r31, Z
+ 4ca:	e0 2d       	mov	r30, r0
+ 4cc:	09 94       	ijmp
+
+000004ce <_exit>:
+ 4ce:	f8 94       	cli
+
+000004d0 <__stop_program>:
+ 4d0:	ff cf       	rjmp	.-2      	; 0x4d0 <__stop_program>

@@ -1,5 +1,5 @@
-//* lib_buttons.cpp - sample state machine library *
-#include "lib_buttons.h"
+//* This is a "stub" file that can be replaced by the implementation file for a fully functional library for push buttons *
+#include "hw_buttons.h"
 
 
 void DebounceFilter::update(bool pressed) {
@@ -49,3 +49,6 @@ void DebouncedTogglePushButton::update(bool pressed) {
 	debouncer.update(pressed);
 	TogglePushButton::update(debouncer.getState());
 }
+
+// TODO
+// .. AutorepeatDebouncedTogglePushButton from the recent homework assignment - implementation file portion

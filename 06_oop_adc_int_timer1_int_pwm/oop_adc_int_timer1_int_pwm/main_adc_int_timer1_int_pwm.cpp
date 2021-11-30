@@ -3,6 +3,7 @@
  *
  * Created: 9/9/2020 1:27:00 AM
  * Updated: 12/2/2020 1:12:00 AM
+ * Updated: 11/29/2021 11:13:00 PM
  *  Author: Aleksander Malinowski
  */
 
@@ -75,7 +76,7 @@ int main(void)
     Timer1::getInstance().initialize(10000, &myInt, Timer1::timer_prescale_1);
 
     ADConverter &V1 = ADConverter::getInstance();
-    V1.initialize(ADConverter::CH4, ADConverter::CHMAX);
+    V1.initialize(ADConverter::CH0, ADConverter::CH2);
 
     sei();
     // MAIN SUPERLOOP
@@ -84,8 +85,8 @@ int main(void)
         while ( !V1.isReady() ) ;
         V1.resetReady();
 
-        PWM.setPWM(0, static_cast<uint16_t>(100)*V1.getRecent(ADConverter::CH4)/255);
-        PWM.setPWM(1, static_cast<uint16_t>(100)*V1.getRecent(ADConverter::CH5)/255);
+        PWM.setPWM(0, static_cast<uint16_t>(100)*V1.getRecent(ADConverter::CH0)/255);
+        PWM.setPWM(1, static_cast<uint16_t>(100)*V1.getRecent(ADConverter::CH1)/255);
 
         wdt_reset();                // comment this line, observe and put it back
     }
