@@ -4,6 +4,7 @@
  * Created: 9/9/2020 1:27:00 AM
  * Updated: 12/14/2020 4:50:00 PM
  * Updated: 11/29/2021 11:21:00 PM
+ * Updated: 12/14/2021 11:43:00 PM (reduced suggested buffer size)
  * Author: Aleksander Malinowski
  */
 
@@ -90,8 +91,8 @@ int main(void)
     //             ^^ replace with the correct data type for data storage
     //                      ^^ replace with the correct data type for the sum of data to be averaged
     //                               ^^ replace with the correct data type for the size used with this buffer
-    //                                        ^^     compute 50Hz x 20 seconds and set the buffer size/long average capacity
-    //                                           ^^  compute 50Hz x 5 seconds and set the short average capacity
+    //                                        ^^     compute 50Hz x 15 seconds and set the buffer size/long average capacity
+    //                                           ^^  compute 50Hz x  3 seconds and set the short average capacity
 
     sei();
     // MAIN SUPERLOOP
