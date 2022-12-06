@@ -27,15 +27,15 @@
     <eraseonlaunchrule>0</eraseonlaunchrule>
     <AsfFrameworkConfig>
       <framework-data>
-  <options />
-  <configurations />
-  <files />
-  <documentation help="" />
-  <offline-documentation help="" />
-  <dependencies>
-    <content-extension eid="atmel.asf" uuidref="Atmel.ASF" version="3.44.0" />
-  </dependencies>
-</framework-data>
+        <options />
+        <configurations />
+        <files />
+        <documentation help="" />
+        <offline-documentation help="" />
+        <dependencies>
+          <content-extension eid="atmel.asf" uuidref="Atmel.ASF" version="3.44.0" />
+        </dependencies>
+      </framework-data>
     </AsfFrameworkConfig>
     <avrtool>com.atmel.avrdbg.tool.simulator</avrtool>
     <avrtoolinterface>ISP</avrtoolinterface>
@@ -271,12 +271,6 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="lib_atomic.h">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="hw_buttons.cpp">
-      <SubType>compile</SubType>
-    </Compile>
-    <Compile Include="hw_buttons.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="lib_int_abase.h">

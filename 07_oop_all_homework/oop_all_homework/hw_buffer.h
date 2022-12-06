@@ -1,6 +1,6 @@
 //* This is a "stub" file that can be replaced by the fully functional circular buffer-based averaging class template *
-#ifndef HW_BUFFER2021_H_
-#define HW_BUFFER2021_H_
+#ifndef HW_BUFFER2022_H_
+#define HW_BUFFER2022_H_
 
 #include <stddef.h>
 

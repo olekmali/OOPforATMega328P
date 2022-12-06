@@ -5,6 +5,8 @@
  * Updated: 12/14/2020 4:50:00 PM
  * Updated: 11/29/2021 11:21:00 PM
  * Updated: 12/14/2021 11:43:00 PM (reduced suggested buffer size)
+ * Updated: 12/4/2021  8:39:00 PM (autorepeat removed button test)
+ * Updated: 12/4/2021  8:40:00 PM (separated declaration of circular buffers for channels 0 and 1 to allow for different timings)
  * Author: Aleksander Malinowski
  */
 
@@ -15,7 +17,6 @@
 #include "bios_adc.h"
 #include "lib_pwm.h"
 
-#include "hw_buttons.h"
 #include "hw_buffer.h"
 
 #include <stdlib.h>
@@ -73,9 +74,6 @@ int main(void)
     LED.set(0);
 
     MenuKeys KEY;
-    // TO DO
-    TogglePushButton B0;
-    // ^^^^^^^^^ Convert to autorepeat button
     uint8_t alive = 0;
 
     PWM_Generator<4, uint8_t> PWM(100, 100);
@@ -87,12 +85,21 @@ int main(void)
     ADConverter &V1 = ADConverter::getInstance();
     V1.initialize(ADConverter::CH0, ADConverter::CHMAX);
 
-    CircularBuffer<uint8_t, uint8_t, uint8_t, 1, 1> Channel0, Channel1;
+// TO DO
+    CircularBuffer<uint8_t, uint8_t, uint8_t, 1, 1> Channel0;
     //             ^^ replace with the correct data type for data storage
-    //                      ^^ replace with the correct data type for the sum of data to be averaged
+    //                      ^^ replace with the correct data type for the long average sum of data to be averaged
     //                               ^^ replace with the correct data type for the size used with this buffer
-    //                                        ^^     compute 50Hz x 15 seconds and set the buffer size/long average capacity
-    //                                           ^^  compute 50Hz x  3 seconds and set the short average capacity
+    //                                        ^^     compute 50Hz x ?? seconds and set the buffer size/long average capacity
+    //                                           ^^  compute 50Hz x  ? seconds and set the short average capacity
+
+// TO DO
+    CircularBuffer<uint8_t, uint8_t, uint8_t, 1, 1> Channel1;
+    //             ^^ replace with the correct data type for data storage
+    //                      ^^ replace with the correct data type for the long average sum of data to be averaged
+    //                               ^^ replace with the correct data type for the size used with this buffer
+    //                                        ^^     compute 50Hz x ?? seconds and set the buffer size/long average capacity
+    //                                           ^^  compute 50Hz x  ? seconds and set the short average capacity
 
     sei();
     // MAIN SUPERLOOP
@@ -143,15 +150,12 @@ int main(void)
         if ( 0 != (KEY.get() & MenuKeys::Key4) )
         {
             Channel0.clear();
-            Channel1.clear();
         }
 
-        // convert the button below to auto-repeat button
-        B0.update( 0 != (KEY.get() & MenuKeys::Key5) );
-        cli();
-        if ( B0.getState() )    LED.set( LED.get() |  LEDs::LED4 );
-        else                    LED.set( LED.get() & ~LEDs::LED4 );
-        sei();
+        if ( 0 != (KEY.get() & MenuKeys::Key5) )
+        {
+            Channel1.clear();
+        }
 
         // do not change this feature - used for grading
         cli();

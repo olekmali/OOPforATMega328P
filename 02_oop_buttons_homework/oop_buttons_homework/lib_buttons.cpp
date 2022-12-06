@@ -3,27 +3,27 @@
 
 
 void DebounceFilter::update(bool pressed) {
-	if (pressed) {
-		count_on++;
-		if (count_on>threshold) { count_off = 0; state = true; }
-	}
-	else {
-		count_off++;
-		if (count_off>threshold) { count_on = 0; state = false; }
-	}
+    if (pressed) {
+        count_on++;
+        if (count_on>threshold) { count_off = 0; state = true; }
+    }
+    else {
+        count_off++;
+        if (count_off>threshold) { count_on = 0; state = false; }
+    }
 }
 
 
 void AutorepeaterFilter::update(bool pressed) {
-	if (pressed) {
-		state = true;
-		count_on++;
-		if (count_on>threshold) { count_on = 0; state = false; }
-	}
-	else {
-		count_on = 0;
-		state = false;
-	}
+    if (pressed) {
+        state = true;
+        count_on++;
+        if (count_on>threshold) { count_on = 0; state = false; }
+    }
+    else {
+        count_on = 0;
+        state = false;
+    }
 }
 
 PushButton::PushButton(bool inistate)
@@ -35,10 +35,10 @@ TogglePushButton::TogglePushButton(bool inistate)
 }
 
 void TogglePushButton::update(bool pressed) {
-	if (pressed != recentinput && pressed == true) {
-		state = !state; // negate (flip) the state
-	}
-	recentinput = pressed;
+    if (pressed != recentinput && pressed == true) {
+        state = !state; // negate (flip) the state
+    }
+    recentinput = pressed;
 }
 
 DebouncedTogglePushButton::DebouncedTogglePushButton(bool inistate)
@@ -46,6 +46,6 @@ DebouncedTogglePushButton::DebouncedTogglePushButton(bool inistate)
 }
 
 void DebouncedTogglePushButton::update(bool pressed) {
-	debouncer.update(pressed);
-	TogglePushButton::update(debouncer.getState());
+    debouncer.update(pressed);
+    TogglePushButton::update(debouncer.getState());
 }
